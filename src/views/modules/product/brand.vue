@@ -29,7 +29,16 @@
       <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
       <el-table-column prop="brandId" header-align="center" align="center" label="品牌id"></el-table-column>
       <el-table-column prop="name" header-align="center" align="center" label="品牌名"></el-table-column>
-      <el-table-column prop="logo" header-align="center" align="center" label="品牌logo地址"></el-table-column>
+      <el-table-column prop="logo" header-align="center" align="center" label="品牌logo地址">
+        <template slot-scope="scope">
+          <el-image
+            style="width: 100px; height: 100px"
+            z-index="2000"
+            :src="scope.row.logo"
+            fit="contain"
+          ></el-image>
+        </template>
+      </el-table-column>
       <el-table-column prop="descript" header-align="center" align="center" label="介绍"></el-table-column>
       <el-table-column prop="showStatus" header-align="center" align="center" label="显示状态">
         <template slot-scope="scope">
@@ -189,3 +198,8 @@ export default {
   }
 };
 </script>
+<style>
+.el-image__inner {
+  width: 100%;
+}
+</style>
